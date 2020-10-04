@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import QuestionType from "./components/QuestionType";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Buttons from "./components/Buttons";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <div className="d-flex justify-content-center align-items-center">
+            <h1 style={{ color: "green" }}>Survey Tiger</h1>
+          </div>
+          <div className="survey">
+            <Switch>
+              <Route exact path="/">
+                <Buttons />
+              </Route>
+              <Route exact path="/queType">
+                <QuestionType />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    );
+  }
 }
-
 export default App;
